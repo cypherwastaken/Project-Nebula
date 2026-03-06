@@ -1,20 +1,18 @@
 *{
-box-sizing:border-box;
 margin:0;
 padding:0;
+box-sizing:border-box;
 font-family:sans-serif;
 }
 
 body{
-height:100vh;
 overflow:hidden;
+height:100vh;
 user-select:none;
 }
 
 #desktop{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:url("wallpaper/wallpaper.jpg") center/cover no-repeat;
@@ -22,36 +20,38 @@ background:url("wallpaper/wallpaper.jpg") center/cover no-repeat;
 
 #windows{
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
-pointer-events:none;
 }
 
 .window{
 position:absolute;
 background:white;
-border:1px solid #444;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
+border:1px solid #333;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
 resize:both;
 overflow:hidden;
-pointer-events:auto;
 }
 
 .titlebar{
-height:30px;
+height:32px;
 background:#111;
 color:white;
 display:flex;
 align-items:center;
+justify-content:space-between;
 padding:0 10px;
 cursor:move;
 }
 
+.window-controls span{
+margin-left:10px;
+cursor:pointer;
+}
+
 .window iframe{
 width:100%;
-height:calc(100% - 30px);
+height:calc(100% - 32px);
 border:none;
 }
 
@@ -59,18 +59,17 @@ border:none;
 position:fixed;
 bottom:0;
 left:0;
-width:100%;
 height:40px;
+width:100%;
 background:#111;
 display:flex;
 align-items:center;
-padding:5px;
 }
 
 .taskbar-item{
 width:32px;
 height:32px;
-margin:0 5px;
+margin:4px;
 cursor:pointer;
 }
 
