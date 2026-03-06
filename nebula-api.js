@@ -31,7 +31,7 @@ return win
 
 }
 
-let z = 100
+var z = 100
 
 function createNebulaWindow(title){
 
