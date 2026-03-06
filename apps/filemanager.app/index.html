@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<body style="font-family:sans-serif;padding:10px">
+
+<h2>File Manager</h2>
+
+<button onclick="createFile()">New File</button>
+
+<ul id="files"></ul>
+
+<script>
+
+const fs = parent.NebulaFS
+
+function render(){
+
+let files = fs.list()
+
+let list = document.getElementById("files")
+
+list.innerHTML=""
+
+for(let path in files){
+
+let li=document.createElement("li")
+
+li.innerHTML=`
+${path}
+<button onclick="openFile('${path}')">open</button>
+<button onclick="deleteFile('${path}')">delete</button>
+`
+
+list.appendChild(li)
+
+}
+
+}
+
+function createFile(){
+
+let name = prompt("File name")
+
+if(!name) return
+
+fs.write("/"+name,"")
+
+render()
+
+}
+
+function openFile(path){
+
+let content = fs.read(path)
+
+let newContent = prompt("Edit file",content)
+
+if(newContent!==null){
+
+fs.write(path,newContent)
+
+}
+
+render()
+
+}
+
+function deleteFile(path){
+
+fs.delete(path)
+
+render()
+
+}
+
+render()
+
+</script>
+
+</body>
+
+</html>
