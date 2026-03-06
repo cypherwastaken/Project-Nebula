@@ -1,7 +1,7 @@
 const taskbar = document.getElementById("taskbar-apps")
 const windows = document.getElementById("windows")
 
-let z = 1
+var z = 1
 
 init()
 
